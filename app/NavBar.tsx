@@ -1,22 +1,53 @@
+import { router, usePathname } from "expo-router";
 import React from "react";
-import { Text, StyleSheet, View, Image } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Image,
+  Dimensions,
+  TouchableOpacity,
+} from "react-native";
 
 function NavBar() {
+  const path: string = usePathname();
+
+  function routeHome(): void {
+    if (path !== "/") router.push("/");
+  }
+
   return (
     <View style={styles.background}>
-      <Image
-        source={require("../assets/images/home-icon.svg")}
-        height={10}
-        width={10}
-        resizeMode="contain"
-      />
+      <View style={styles.imageContainter}>
+        <TouchableOpacity onPress={() => routeHome()}>
+          <Image
+            source={require("../assets/images/home-icon.png")}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.remainingContent} />
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   background: {
     flex: 0.1,
     flexDirection: "row",
+    marginTop: 20,
+  },
+  image: {
+    flex: 1,
+    resizeMode: "contain",
+  },
+  imageContainter: {
+    flex: 0.2,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  remainingContent: {
+    flex: 0.8,
   },
 });
 export default NavBar;

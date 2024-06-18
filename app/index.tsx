@@ -3,12 +3,7 @@ import WelcomeScreen from "./screens/WelcomeScreen";
 import NavBar from "./NavBar";
 
 export default function Index() {
-  return (
-    <View style={styles.backgroundContainer}>
-      <NavBar></NavBar>
-      <WelcomeScreen></WelcomeScreen>
-    </View>
-  );
+  return <WelcomeScreen></WelcomeScreen>;
 }
 const styles = StyleSheet.create({
   backgroundContainer: {

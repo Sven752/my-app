@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import React from "react";
 import { StyleSheet, TouchableOpacity, Image, Text } from "react-native";
 
@@ -6,7 +7,7 @@ function SelectConstType() {
   return (
     <TouchableOpacity
       style={styles.background}
-      onPress={() => console.log(constructionType)}
+      onPress={() => router.push("screens/GetSSData")}
     >
       <Image source={require("../../../assets/images/Test.png")} />
       <Text style={styles.textStyle}>This is a titel for a construction</Text>

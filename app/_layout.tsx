@@ -8,7 +8,7 @@ export default function RootLayout() {
       <NavBar></NavBar>
       <Stack>
         <Stack.Screen name="index" options={options} />
-        <Stack.Screen name="screens/GetSSData" options={options} />
+        <Stack.Screen name="screens/GetSSBData" options={options} />
       </Stack>
     </View>
   );

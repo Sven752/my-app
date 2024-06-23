@@ -3,11 +3,10 @@ import React from "react";
 import { StyleSheet, TouchableOpacity, Image, Text } from "react-native";
 
 function SelectConstType() {
-  const constructionType: String = "Test";
   return (
     <TouchableOpacity
       style={styles.background}
-      onPress={() => router.push("screens/GetSSData")}
+      onPress={() => router.push("screens/GetSSBData")}
     >
       <Image source={require("../../../assets/images/Test.png")} />
       <Text style={styles.textStyle}>This is a titel for a construction</Text>

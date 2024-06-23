@@ -1,12 +1,6 @@
 import { router, usePathname } from "expo-router";
 import React from "react";
-import {
-  StyleSheet,
-  View,
-  Image,
-  Dimensions,
-  TouchableOpacity,
-} from "react-native";
+import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
 
 function NavBar() {
   const path: string = usePathname();

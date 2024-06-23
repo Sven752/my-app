@@ -1,6 +1,5 @@
-import { Text, View, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import WelcomeScreen from "./screens/WelcomeScreen";
-import NavBar from "./NavBar";
 
 export default function Index() {
   return <WelcomeScreen></WelcomeScreen>;

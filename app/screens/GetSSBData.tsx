@@ -1,8 +1,23 @@
 import React, { useState } from "react";
 import { Text, StyleSheet, ScrollView, Dimensions, View } from "react-native";
 import PaginationDot from "react-native-animated-pagination-dot";
+import SelectHeight from "./Components/SelectHeight";
+import SelectWidth from "./Components/SelectWidth";
+import SelectBalkenDicke from "./Components/SelectBalkenDicke";
+import SelectKeilSize from "./Components/SelectKeilSize";
 
 function GetSSBData() {
+  type SSBType = {
+    width?: number;
+    height?: number;
+    balkenDicke?: number;
+    KeilSize?: number;
+  };
+
+  let SSBDataEmpty: SSBType = {};
+  SSBDataEmpty.height = 123;
+
+  const [SSBData, setSSBData] = useState(SSBDataEmpty);
   const [page, setPage] = useState(0);
   const updatePage = (xOffset: number): void => {
     setPage(Math.floor(xOffset / Dimensions.get("window").width));
@@ -21,11 +36,28 @@ function GetSSBData() {
         }}
         scrollEventThrottle={16}
       >
-        <Text style={styles.startButton}>Page 1</Text>
-        <Text style={styles.startButton}>Page 2</Text>
-        <Text style={styles.startButton}>Page 3</Text>
+        <View style={styles.page}>
+          <SelectHeight SSBData={SSBData} setSSBData={setSSBData} />
+        </View>
+        <View style={styles.page}>
+          <SelectWidth SSBData={SSBData} />
+        </View>
+        <View style={styles.page}>
+          <SelectBalkenDicke SSBData={SSBData} />
+        </View>
+        <View style={styles.page}>
+          <SelectKeilSize SSBData={SSBData} />
+        </View>
       </ScrollView>
-      <PaginationDot activeDotColor={"black"} curPage={page} maxPage={3} />
+      <Text>{SSBData.height}</Text>
+      <View style={styles.paginationDots}>
+        <PaginationDot
+          activeDotColor={"black"}
+          curPage={page}
+          maxPage={4}
+          sizeRatio={2}
+        />
+      </View>
     </View>
   );
 }
@@ -33,12 +65,14 @@ const styles = StyleSheet.create({
   background: {
     flex: 1,
   },
-  startButton: {
+  page: {
     width: Dimensions.get("window").width,
     backgroundColor: "green",
   },
   paginationDots: {
-    height: 50,
+    height: 30,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 export default GetSSBData;

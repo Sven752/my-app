@@ -19,7 +19,6 @@ function NavBar() {
           />
         </TouchableOpacity>
       </View>
-
       <View style={styles.remainingContent} />
     </View>
   );

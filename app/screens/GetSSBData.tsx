@@ -5,6 +5,7 @@ import SelectHeight from "./Components/SelectHeight";
 import SelectWidth from "./Components/SelectWidth";
 import SelectBalkenDicke from "./Components/SelectBalkenDicke";
 import SelectKeilSize from "./Components/SelectKeilSize";
+import SSBContinue from "./Components/SSBContinue";
 
 function GetSSBData() {
   type SSBType = {
@@ -21,7 +22,6 @@ function GetSSBData() {
   const [page, setPage] = useState(0);
   const updatePage = (xOffset: number): void => {
     setPage(Math.floor(xOffset / Dimensions.get("window").width));
-    //console.log(Math.floor(xOffset / Dimensions.get("window").width));
   };
 
   return (
@@ -40,13 +40,16 @@ function GetSSBData() {
           <SelectHeight SSBData={SSBData} setSSBData={setSSBData} />
         </View>
         <View style={styles.page}>
-          <SelectWidth SSBData={SSBData} />
+          <SelectWidth SSBData={SSBData} setSSBData={setSSBData} />
         </View>
         <View style={styles.page}>
-          <SelectBalkenDicke SSBData={SSBData} />
+          <SelectBalkenDicke SSBData={SSBData} setSSBData={setSSBData} />
         </View>
         <View style={styles.page}>
-          <SelectKeilSize SSBData={SSBData} />
+          <SelectKeilSize SSBData={SSBData} setSSBData={setSSBData} />
+        </View>
+        <View style={styles.page}>
+          <SSBContinue SSBData={SSBData} setSSBData={setSSBData} />
         </View>
       </ScrollView>
       <Text>{SSBData.height}</Text>
@@ -54,7 +57,7 @@ function GetSSBData() {
         <PaginationDot
           activeDotColor={"black"}
           curPage={page}
-          maxPage={4}
+          maxPage={5}
           sizeRatio={2}
         />
       </View>

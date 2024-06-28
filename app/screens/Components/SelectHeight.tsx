@@ -1,11 +1,18 @@
-import React, { useState } from "react";
-import { Text, StyleSheet, View, Image, TextInput } from "react-native";
+import React from "react";
+import {
+  Text,
+  StyleSheet,
+  View,
+  Image,
+  TextInput,
+  Dimensions,
+} from "react-native";
 
 type SSBtype = {
   width?: number;
   height?: number;
   balkenDicke?: number;
-  KeilSize?: number;
+  keilSize?: number;
 };
 type SSBProps = {
   SSBData: SSBtype;
@@ -13,20 +20,28 @@ type SSBProps = {
 };
 
 function SelectHeight(props: SSBProps) {
-  const [inputValue, setInputValue] = React.useState("asf");
-
-  const updateSSBData = (): void => {};
+  const updateSSBData = (newValue: string): void => {
+    const updatedProps: SSBtype = {
+      height: Number.parseInt(newValue),
+      width: props.SSBData.width,
+      balkenDicke: props.SSBData.balkenDicke,
+      keilSize: props.SSBData.keilSize,
+    };
+    props.setSSBData(updatedProps);
+  };
 
   return (
     <View style={styles.background}>
       <Image source={require("../../../assets/images/Test.png")} />
       <Text style={styles.textStyle}>Bitte gib die Abzustützende Höhe an</Text>
       <TextInput
+        style={styles.textInputStyle}
         placeholder="[cm]"
         keyboardType="numeric"
-        onChangeText={(newText) => setInputValue(newText)}
-      ></TextInput>
-      <Text>{inputValue}</Text>
+        onChangeText={(newText) => {
+          updateSSBData(newText);
+        }}
+      />
     </View>
   );
 }
@@ -43,6 +58,13 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     marginTop: 20,
+  },
+  textInputStyle: {
+    borderWidth: 1,
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    minWidth: Dimensions.get("window").width / 5,
   },
 });
 

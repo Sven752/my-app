@@ -7,6 +7,7 @@ import SBResult from "./Components/SBBResults/SBResult";
 import DiagonaleResult from "./Components/SBBResults/DiagonaleResult";
 import KnaggeResult from "./Components/SBBResults/KnaggeResult";
 import VerSResult from "./Components/SBBResults/VerSResult";
+import { CalculateSSB } from "../dataHandling/CalculateSSB";
 
 type SSBType = {
   width: number;
@@ -54,6 +55,7 @@ function ViewSSBResults() {
         style={styles.scrollview}
         horizontal={true}
         pagingEnabled={true}
+        showsHorizontalScrollIndicator={false}
         onScroll={(event) => {
           updatePage(event.nativeEvent.contentOffset.x);
         }}

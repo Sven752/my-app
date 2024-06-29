@@ -1,12 +1,12 @@
 import React from "react";
 import { View, StyleSheet, Image, Text } from "react-native";
 
-function TLResult(props: { length: number }) {
+function TLResult(props: Readonly<{ length: number }>) {
   return (
     <View style={styles.background}>
       <Image source={require("../../../../assets/images/Test.png")} />
       <Text style={styles.textStyle}>Länge der Treiblade:</Text>
-      <Text style={styles.textStyle}>{props.length}</Text>
+      <Text style={styles.textStyle}>{props.length} cm</Text>
     </View>
   );
 }

@@ -14,7 +14,7 @@ type SSBResultsFormat = {
   diagonaleAngle: number;
 };
 
-class CalculateSSB {
+export class CalculateSSB {
   inputData: SSBType;
   outputData: SSBResultsFormat;
 

@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
   background: {
     flex: 0.1,
     flexDirection: "row",
-    marginTop: 20,
+    marginTop: 40,
+    backgroundColor: "#00387A",
   },
   image: {
     flex: 1,

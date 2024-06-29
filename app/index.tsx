@@ -7,6 +7,6 @@ export default function Index() {
 const styles = StyleSheet.create({
   backgroundContainer: {
     flex: 1,
-    backgroundColor: "grey",
+    backgroundColor: "#00387A",
   },
 });

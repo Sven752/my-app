@@ -9,7 +9,9 @@ export default function RootLayout() {
       <Stack>
         <Stack.Screen name="index" options={options} />
         <Stack.Screen name="screens/GetSSBData" options={options} />
+        <Stack.Screen name="screens/GetSWData" options={options} />
         <Stack.Screen name="screens/ViewSSBResults" options={options} />
+        <Stack.Screen name="screens/ViewSWResults" options={options} />
       </Stack>
     </View>
   );

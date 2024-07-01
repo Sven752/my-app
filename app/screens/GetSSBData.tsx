@@ -22,6 +22,7 @@ function GetSSBData() {
   const [page, setPage] = useState(0);
   const updatePage = (xOffset: number): void => {
     setPage(Math.floor(xOffset / Dimensions.get("window").width));
+    //console.log(Math.floor(xOffset / Dimensions.get("window").width));
   };
 
   return (

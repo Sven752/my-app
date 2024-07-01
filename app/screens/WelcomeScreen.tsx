@@ -5,8 +5,8 @@ import SelectConstType from "./Components/SelectConstType";
 function WelcomeScreen() {
   return (
     <ScrollView style={styles.background}>
-      <SelectConstType />
-      <SelectConstType />
+      <SelectConstType title="Strebstuetzbock" path="GetSSBData" />
+      <SelectConstType title="Sprengwerk" path="GetSWData" />
     </ScrollView>
   );
 }

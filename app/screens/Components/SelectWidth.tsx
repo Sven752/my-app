@@ -19,7 +19,7 @@ type SSBProps = {
   setSSBData: any;
 };
 
-function SelectWidth(props: SSBProps) {
+function SelectWidth(props: Readonly<SSBProps>) {
   const updateSSBData = (newValue: string): void => {
     const updatedProps: SSBtype = {
       height: props.SSBData.keilSize,

@@ -19,7 +19,7 @@ type SSBProps = {
   setSSBData: any;
 };
 
-function SelectHeight(props: SSBProps) {
+function SelectHeight(props: Readonly<SSBProps>) {
   const updateSSBData = (newValue: string): void => {
     const updatedProps: SSBtype = {
       height: Number.parseInt(newValue),

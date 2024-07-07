@@ -19,7 +19,7 @@ type SSBProps = {
   setSSBData: any;
 };
 
-function SelectBalkenDicke(props: SSBProps) {
+function SelectBalkenDicke(props: Readonly<SSBProps>) {
   const updateSSBData = (newValue: string): void => {
     const updatedProps: SSBtype = {
       height: props.SSBData.keilSize,

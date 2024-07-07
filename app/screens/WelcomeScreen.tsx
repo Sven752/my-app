@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 import SelectConstType from "./Components/SelectConstType";
 
 function WelcomeScreen() {

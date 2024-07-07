@@ -1,6 +1,12 @@
 import { router, usePathname } from "expo-router";
 import React from "react";
-import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Image,
+  TouchableOpacity,
+  StatusBar,
+} from "react-native";
 
 function NavBar() {
   const path: string = usePathname();
@@ -28,7 +34,7 @@ const styles = StyleSheet.create({
   background: {
     flex: 0.1,
     flexDirection: "row",
-    marginTop: 40,
+    marginTop: StatusBar.currentHeight,
     backgroundColor: "#00387A",
   },
   image: {

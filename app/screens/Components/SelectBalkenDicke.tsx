@@ -34,7 +34,7 @@ function SelectBalkenDicke(props: Readonly<SSBProps>) {
     <View style={styles.background}>
       <Image
         style={styles.imageStyle}
-        source={require("@/assets/images/SW_Images/Input/SSBBalkenWidth.png")}
+        source={require("@assets/images/SSB_Images/Input/SSBBalkenWidth.png")}
       />{" "}
       <Text style={styles.textStyle}>
         Bitte gib die Dicke der verwendeten Balken an.

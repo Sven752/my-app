@@ -1,10 +1,13 @@
 import React from "react";
-import { View, StyleSheet, Image, Text } from "react-native";
+import { View, StyleSheet, Image, Text, Dimensions } from "react-native";
 
 function SWSpnnResult(props: Readonly<{ length: number }>) {
   return (
     <View style={styles.background}>
-      <Image source={require("../../../../assets/images/Test.png")} />
+      <Image
+        style={styles.imageStyle}
+        source={require("@/assets/images/Test.png")}
+      />
       <Text style={styles.textStyle}>Länge des Spannholzes:</Text>
       <Text style={styles.textStyle}>{props.length} cm</Text>
       <Text style={styles.textStyle}>
@@ -25,6 +28,11 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     marginTop: 20,
+  },
+  imageStyle: {
+    resizeMode: "contain",
+    width: Dimensions.get("window").width * 0.8,
+    height: Dimensions.get("window").width * 0.8,
   },
 });
 export default SWSpnnResult;

@@ -1,10 +1,13 @@
 import React from "react";
-import { View, Image, Text, StyleSheet } from "react-native";
+import { View, Image, Text, StyleSheet, Dimensions } from "react-native";
 
 function SWStrebeResult(props: Readonly<{ length: number; angle: number }>) {
   return (
     <View style={styles.background}>
-      <Image source={require("../../../../assets/images/Test.png")} />
+      <Image
+        style={styles.imageStyle}
+        source={require("@/assets/images/SW_Images/Input/SWStrebe.png")}
+      />
       <Text style={styles.textStyle}>Länge der Strebe:</Text>
       <Text style={styles.textStyle}>{props.length} cm</Text>
       <Text style={styles.textStyle}>Winkel der Anschnittkante:</Text>
@@ -28,6 +31,11 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     marginTop: 20,
+  },
+  imageStyle: {
+    resizeMode: "contain",
+    width: Dimensions.get("window").width * 0.8,
+    height: Dimensions.get("window").width * 0.8,
   },
 });
 export default SWStrebeResult;

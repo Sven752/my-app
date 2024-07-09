@@ -34,8 +34,8 @@ function SelectHeight(props: Readonly<SSBProps>) {
     <View style={styles.background}>
       <Image
         style={styles.imageStyle}
-        source={require("@/assets/images/SW_Images/Input/SSBHeigth.png")}
-      />{" "}
+        source={require("@/assets/images/SSB_Images/Input/SSBHeigth.png")}
+      />
       <Text style={styles.textStyle}>Bitte gib die Abzustützende Höhe an</Text>
       <TextInput
         style={styles.textInputStyle}

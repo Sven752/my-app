@@ -34,8 +34,8 @@ function SelectWidth(props: Readonly<SSBProps>) {
     <View style={styles.background}>
       <Image
         style={styles.imageStyle}
-        source={require("@/assets/images/SW_Images/Input/SSBWidth.png")}
-      />{" "}
+        source={require("@/assets/images/SSB_Images/Input/SSBWidth.png")}
+      />
       <Text style={styles.textStyle}>
         Bitte gib die maximal zur Verfügugng stehende Breite an
       </Text>

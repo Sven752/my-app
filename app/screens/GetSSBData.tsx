@@ -16,7 +16,6 @@ function GetSSBData() {
   };
 
   let SSBDataEmpty: SSBType = {};
-  SSBDataEmpty.height = 123;
 
   const [SSBData, setSSBData] = useState(SSBDataEmpty);
   const [page, setPage] = useState(0);
@@ -53,7 +52,6 @@ function GetSSBData() {
           <SSBContinue SSBData={SSBData} setSSBData={setSSBData} />
         </View>
       </ScrollView>
-      <Text>{SSBData.height}</Text>
       <View style={styles.paginationDots}>
         <PaginationDot
           activeDotColor={"black"}

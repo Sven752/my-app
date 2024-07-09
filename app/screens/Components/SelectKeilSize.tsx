@@ -34,8 +34,8 @@ function SelectKeilSize(props: Readonly<SSBProps>) {
     <View style={styles.background}>
       <Image
         style={styles.imageStyle}
-        source={require("@/assets/images/SW_Images/Input/SSBKeilWidth.png")}
-      />{" "}
+        source={require("@/assets/images/SSB_Images/Input/SSBKeilWidth.png")}
+      />
       <Text style={styles.textStyle}>Bitte gib die Dicke eines Keils an</Text>
       <TextInput
         style={styles.textInputStyle}

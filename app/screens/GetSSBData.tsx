@@ -30,7 +30,7 @@ function GetSSBData() {
         style={styles.background}
         horizontal={true}
         pagingEnabled={true}
-        showsHorizontalScrollIndicator={true}
+        showsHorizontalScrollIndicator={false}
         onScroll={(event) => {
           updatePage(event.nativeEvent.contentOffset.x);
         }}

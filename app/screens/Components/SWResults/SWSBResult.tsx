@@ -6,7 +6,7 @@ function SWSBResult(props: Readonly<{ length: number }>) {
     <View style={styles.background}>
       <Image
         style={styles.imageStyle}
-        source={require("@/assets/images/SW_Images/Input/SWStreichBalken.png")}
+        source={require("@/assets/images/SW_Images/Results/SWStreichBalken.png")}
       />
       <Text style={styles.textStyle}>Länge des Streichbalkens:</Text>
       <Text style={styles.textStyle}>{props.length} cm</Text>

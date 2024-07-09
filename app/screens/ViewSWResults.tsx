@@ -10,6 +10,7 @@ import SWSBResult from "./Components/SWResults/SWSBResult";
 import SWStrebeResult from "./Components/SWResults/SWStrebeResult";
 import SWKnaggeResult from "./Components/SWResults/SWKnaggeResult";
 import SWZangeResult from "./Components/SWResults/SWZangeResult";
+import SWSpnnResult from "./Components/SWResults/SWSpnnResult";
 
 function ViewSWResults() {
   //handle Pagination
@@ -64,6 +65,10 @@ function ViewSWResults() {
         </View>
 
         <View style={styles.page}>
+          <SWSpnnResult length={SWResults.spnnLength} />
+        </View>
+
+        <View style={styles.page}>
           <SWSBResult length={SWResults.sbLength} />
         </View>
 
@@ -103,7 +108,6 @@ const styles = StyleSheet.create({
   },
   page: {
     width: Dimensions.get("window").width,
-    backgroundColor: "lightgrey",
   },
   paginationDots: {
     height: 30,

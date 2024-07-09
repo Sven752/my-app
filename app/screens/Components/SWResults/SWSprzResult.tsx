@@ -6,7 +6,7 @@ function SWSprzResult(props: Readonly<{ length: number }>) {
     <View style={styles.background}>
       <Image
         style={styles.imageStyle}
-        source={require("@/assets/images/SW_Images/Input/SWSpreizBalken.png")}
+        source={require("@/assets/images/SW_Images/Results/SWSpreizBalken.png")}
       />
       <Text style={styles.textStyle}>Länge des Spreizbalkens:</Text>
       <Text style={styles.textStyle}>{props.length} cm</Text>

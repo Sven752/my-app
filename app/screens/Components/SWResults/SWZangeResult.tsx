@@ -6,7 +6,7 @@ function SWZangeResult(props: Readonly<{ length: number }>) {
     <View style={styles.background}>
       <Image
         style={styles.imageStyle}
-        source={require("@/assets/images/SW_Images/Input/SWZange.png")}
+        source={require("@/assets/images/SW_Images/Results/SWZange.png")}
       />
       <Text style={styles.textStyle}>Länge der Zange:</Text>
       <Text style={styles.textStyle}>{props.length} cm</Text>

@@ -6,7 +6,7 @@ function SWStrebeResult(props: Readonly<{ length: number; angle: number }>) {
     <View style={styles.background}>
       <Image
         style={styles.imageStyle}
-        source={require("@/assets/images/SW_Images/Input/SWStrebe.png")}
+        source={require("@/assets/images/SW_Images/Results/SWStrebe.png")}
       />
       <Text style={styles.textStyle}>Länge der Strebe:</Text>
       <Text style={styles.textStyle}>{props.length} cm</Text>

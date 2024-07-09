@@ -71,7 +71,6 @@ const styles = StyleSheet.create({
   },
   page: {
     width: Dimensions.get("window").width,
-    backgroundColor: "green",
   },
   paginationDots: {
     height: 30,

@@ -32,7 +32,10 @@ function SelectKeilSize(props: Readonly<SSBProps>) {
 
   return (
     <View style={styles.background}>
-      <Image source={require("../../../assets/images/Test.png")} />
+      <Image
+        style={styles.imageStyle}
+        source={require("@/assets/images/SW_Images/Input/SSBKeilWidth.png")}
+      />{" "}
       <Text style={styles.textStyle}>Bitte gib die Dicke eines Keils an</Text>
       <TextInput
         style={styles.textInputStyle}
@@ -65,6 +68,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 5,
     minWidth: Dimensions.get("window").width / 5,
+  },
+  imageStyle: {
+    resizeMode: "contain",
+    width: Dimensions.get("window").width * 0.8,
+    height: Dimensions.get("window").width * 0.8,
   },
 });
 

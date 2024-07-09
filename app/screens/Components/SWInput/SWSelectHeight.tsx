@@ -23,7 +23,10 @@ function SWSelectHeight(props: SWProps) {
 
   return (
     <View style={styles.background}>
-      <Image source={require("@/assets/images/Test.png")} />
+      <Image
+        style={styles.imageStyle}
+        source={require("@/assets/images/SW_Images/Input/SWHeigth.png")}
+      />
       <Text style={styles.textStyle}>
         Bitte gib die Hoehe der Abstzuetzung ein
       </Text>
@@ -32,7 +35,7 @@ function SWSelectHeight(props: SWProps) {
         placeholder="[cm]"
         keyboardType="numeric"
         onChangeText={(newText) => {
-            updateSWData(newText);
+          updateSWData(newText);
         }}
       />
     </View>
@@ -58,6 +61,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 5,
     minWidth: Dimensions.get("window").width / 5,
+  },
+  imageStyle: {
+    resizeMode: "contain",
+    width: Dimensions.get("window").width * 0.8,
+    height: Dimensions.get("window").width * 0.8,
   },
 });
 

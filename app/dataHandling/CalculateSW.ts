@@ -10,6 +10,7 @@ export default class CalculateSW {
       sprzLength: 0,
       spnnLength: 0,
       strbLength: 0,
+      strbLengthDiag: 0,
       strbAngel: 0,
       knaggeLength: 0,
       zangeLength: 0,

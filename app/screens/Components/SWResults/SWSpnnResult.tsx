@@ -6,7 +6,7 @@ function SWSpnnResult(props: Readonly<{ length: number }>) {
     <View style={styles.background}>
       <Image
         style={styles.imageStyle}
-        source={require("@/assets/images/Test.png")}
+        source={require("@/assets/images/SW_Images/Results/SWSpannholz.png")}
       />
       <Text style={styles.textStyle}>Länge des Spannholzes:</Text>
       <Text style={styles.textStyle}>{props.length} cm</Text>

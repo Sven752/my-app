@@ -75,6 +75,7 @@ function ViewSWResults() {
         <View style={styles.page}>
           <SWStrebeResult
             length={SWResults.strbLength}
+            lengthDiag={SWResults.strbLengthDiag}
             angle={SWResults.strbAngel}
           />
         </View>

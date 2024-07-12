@@ -16,6 +16,7 @@ export type SWResult = {
   sprzLength: number;
   spnnLength: number;
   strbLength: number;
+  strbLengthDiag: number;
   strbAngel: number;
   knaggeLength: number;
   knaggeMinHeight: number;

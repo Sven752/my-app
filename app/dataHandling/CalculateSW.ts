@@ -98,7 +98,7 @@ export default class CalculateSW {
     let q = this.ank ** 2 / this.inputData.balkenDicke;
 
     let h = Math.sqrt(p * q);
-    return this.strebeLengthLong - h * 2;
+    return Math.round((this.strebeLengthLong - h * 2) * 10) / 10;
   }
 
   calculateStrbAlphaAngle(): number {

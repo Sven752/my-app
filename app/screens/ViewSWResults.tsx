@@ -35,7 +35,6 @@ function ViewSWResults() {
   throwIfUndefined(balkenDicke);
   throwIfUndefined(sbDicke);
   throwIfUndefined(keilSize);
-  console.log(height);
 
   const inputSWData: SWType = {
     width: Number.parseFloat(width),
@@ -48,7 +47,6 @@ function ViewSWResults() {
   //calculate SSB values
   const SWCalculator = new CalculateSW(inputSWData);
   const SWResults: SWResult = SWCalculator.outputData;
-  console.log(SWResults);
 
   return (
     <View style={{ flex: 1 }}>

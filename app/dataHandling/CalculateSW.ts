@@ -39,7 +39,6 @@ export default class CalculateSW {
   }
 
   calculateSBLength(): number {
-    console.log(this.inputData.height);
     return this.inputData.height;
   }
 

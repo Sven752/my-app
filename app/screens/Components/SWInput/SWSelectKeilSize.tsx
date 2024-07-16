@@ -12,7 +12,7 @@ import {
 function SWSelectKeilSize(props: SWProps) {
   const updateSWData = (newValue: string): void => {
     const updatedProps: SWType = {
-      height: props.SWData.keilSize,
+      height: props.SWData.height,
       width: props.SWData.width,
       balkenDicke: props.SWData.balkenDicke,
       keilSize: Number.parseInt(newValue),

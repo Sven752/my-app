@@ -8,11 +8,12 @@ function SWContinue(props: Readonly<SWProps>) {
     <View style={styles.background}>
       <Button
         title="Berechne Maße"
-        onPress={() =>
+        onPress={() => {
+          console.log(props.SWData.height);
           router.push(
             `screens/ViewSWResults?height=${props.SWData.height}&width=${props.SWData.width}&balkenDicke=${props.SWData.balkenDicke}&sbDicke=${props.SWData.sbDicke}&keilSize=${props.SWData.keilSize}` as any
-          )
-        }
+          );
+        }}
       />
     </View>
   );

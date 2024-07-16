@@ -10,25 +10,52 @@ type SSBResultsFormat = {
   versLength: number;
   knaggeLength: number;
   knaggeMinHeight: number;
-  diagonaleLength: number;
-  diagonaleAngle: number;
+  diagonaleLongLength: number;
+  diagonaleShortLength: number;
+  diagonaleAlphaAngle: number;
+  diagonaleBravoAngle: number;
+};
+
+let input: SSBType = {
+  width: 500,
+  height: 200,
+  balkenDicke: 10,
+  keilSize: 5,
 };
 
 export class CalculateSSB {
   inputData: SSBType;
   outputData: SSBResultsFormat;
+  alpha: number = 0;
+  beta: number = 0;
+  ank: number = 0;
+  geg: number = 0;
+  diagHeigth: number = 0;
+  diagWidth: number = 0;
+  diagLongLength: number = 0;
 
   constructor(param: SSBType) {
-    this.inputData = param;
+    this.inputData = input;
     this.outputData = {
-      tlLength: this.calculateTLLength(),
-      sbLength: this.calculateSBLength(),
-      versLength: this.calculateVersLength(),
-      knaggeLength: this.calculateKnaggeLength(),
-      knaggeMinHeight: this.calculateKnaggeMinHeight(),
-      diagonaleLength: this.calculateDiagonaleLength(),
-      diagonaleAngle: this.calculateDiagonaleAngle(),
+      diagonaleAlphaAngle: 0,
+      diagonaleBravoAngle: 0,
+      diagonaleLongLength: 0,
+      diagonaleShortLength: 0,
+      knaggeLength: 0,
+      knaggeMinHeight: 0,
+      sbLength: 0,
+      tlLength: 0,
+      versLength: 0,
     };
+    this.outputData.tlLength = this.calculateTLLength();
+    this.outputData.sbLength = this.calculateSBLength();
+    this.outputData.versLength = this.calculateVersLength();
+    this.outputData.knaggeLength = this.calculateKnaggeLength();
+    this.outputData.knaggeMinHeight = this.calculateKnaggeMinHeight();
+    this.outputData.diagonaleLongLength = this.calculateDiagonaleLongLength();
+    this.outputData.diagonaleShortLength = this.calculateDiagonaleShortLength();
+    this.outputData.diagonaleAlphaAngle = this.calculateDiagonaleAlphaAngle();
+    this.outputData.diagonaleBravoAngle = this.calculateDiagonaleBravoAngle();
   }
 
   /**
@@ -49,10 +76,14 @@ export class CalculateSSB {
    */
   calculateTLLength(): number {
     if (this.inputData.width > this.inputData.height + 20) {
-      return this.inputData.height - this.inputData.balkenDicke;
+      return (
+        this.inputData.height -
+        this.inputData.balkenDicke +
+        this.inputData.keilSize
+      );
     }
 
-    return this.inputData.width - this.inputData.balkenDicke - 20;
+    return this.inputData.width - 20;
   }
 
   /**
@@ -68,16 +99,59 @@ export class CalculateSSB {
    * @returns die minimale Dicke der Knagge
    */
   calculateKnaggeMinHeight(): number {
-    return Math.ceil(this.inputData.balkenDicke / 3);
+    return Math.ceil(this.inputData.balkenDicke / 2);
   }
 
-  calculateDiagonaleLength(): number {
-    return 0;
+  calculateDiagonaleLongLength(): number {
+    throwIfUndefined(this.outputData.sbLength);
+    throwIfUndefined(this.outputData.tlLength);
+
+    this.diagHeigth =
+      this.outputData.sbLength - 40 - this.inputData.balkenDicke;
+    this.diagWidth = this.outputData.tlLength - 40 - this.inputData.keilSize;
+    this.beta = Math.atan(this.diagHeigth / this.diagWidth);
+    this.alpha = Math.PI / 2 - this.beta;
+
+    this.diagLongLength = Math.sqrt(
+      this.diagHeigth * this.diagHeigth + this.diagWidth * this.diagWidth
+    );
+    return Math.round(this.diagLongLength * 10) / 10;
   }
-  calculateDiagonaleAngle(): number {
-    return 0;
+
+  calculateDiagonaleShortLength(): number {
+    this.ank =
+      Math.cos(Math.PI * 0.5 - this.alpha) / this.inputData.balkenDicke;
+    this.ank =
+      (Math.sin(Math.PI - (Math.PI * 0.5 - this.alpha) - Math.PI * 0.5) *
+        this.inputData.balkenDicke) /
+      Math.sin(Math.PI * 0.5);
+    this.geg = Math.sqrt(
+      this.inputData.balkenDicke * this.inputData.balkenDicke -
+        this.ank * this.ank
+    );
+
+    let p = this.geg ** 2 / this.inputData.balkenDicke;
+    let q = this.ank ** 2 / this.inputData.balkenDicke;
+
+    let h = Math.sqrt(p * q);
+    return Math.round((this.diagLongLength - h * 2) * 10) / 10;
   }
+
+  calculateDiagonaleAlphaAngle(): number {
+    return Math.round(this.alpha * (180 / Math.PI));
+  }
+
+  calculateDiagonaleBravoAngle(): number {
+    return Math.round(this.beta * (180 / Math.PI));
+  }
+
   calculateVersLength(): number {
-    return 0;
+    throwIfUndefined(this.outputData.tlLength);
+
+    return this.outputData.tlLength * 0.7;
   }
+}
+
+function throwIfUndefined<T>(x: T | undefined): asserts x is T {
+  if (typeof x === "undefined") throw new Error("OH NOEZ");
 }

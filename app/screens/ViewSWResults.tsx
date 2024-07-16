@@ -35,6 +35,7 @@ function ViewSWResults() {
   throwIfUndefined(balkenDicke);
   throwIfUndefined(sbDicke);
   throwIfUndefined(keilSize);
+  console.log(height);
 
   const inputSWData: SWType = {
     width: Number.parseFloat(width),
@@ -47,6 +48,7 @@ function ViewSWResults() {
   //calculate SSB values
   const SWCalculator = new CalculateSW(inputSWData);
   const SWResults: SWResult = SWCalculator.outputData;
+  console.log(SWResults);
 
   return (
     <View style={{ flex: 1 }}>
@@ -74,9 +76,10 @@ function ViewSWResults() {
 
         <View style={styles.page}>
           <SWStrebeResult
-            length={SWResults.strbLength}
-            lengthDiag={SWResults.strbLengthDiag}
-            angle={SWResults.strbAngel}
+            longLength={SWResults.strbLengthLong}
+            shortLength={SWResults.strbLengthShort}
+            alphaAngle={SWResults.strbAlphaAngel}
+            bravoAngle={SWResults.strbBravoAngel}
           />
         </View>
 

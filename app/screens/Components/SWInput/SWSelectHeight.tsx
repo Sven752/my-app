@@ -19,6 +19,7 @@ function SWSelectHeight(props: SWProps) {
       sbDicke: props.SWData.sbDicke,
     };
     props.setSWData(updatedProps);
+    console.log(props.SWData);
   };
 
   return (

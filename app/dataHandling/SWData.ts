@@ -15,9 +15,10 @@ export type SWResult = {
   sbLength: number;
   sprzLength: number;
   spnnLength: number;
-  strbLength: number;
-  strbLengthDiag: number;
-  strbAngel: number;
+  strbLengthShort: number;
+  strbLengthLong: number;
+  strbAlphaAngel: number;
+  strbBravoAngel: number;
   knaggeLength: number;
   knaggeMinHeight: number;
   zangeLength: number;

@@ -12,13 +12,14 @@ import {
 function SWSelectWidth(props: SWProps) {
   const updateSWData = (newValue: string): void => {
     const updatedProps: SWType = {
-      height: props.SWData.keilSize,
+      height: props.SWData.height,
       width: Number.parseInt(newValue),
       balkenDicke: props.SWData.balkenDicke,
       keilSize: props.SWData.keilSize,
       sbDicke: props.SWData.sbDicke,
     };
     props.setSWData(updatedProps);
+    console.log(props.SWData);
   };
 
   return (

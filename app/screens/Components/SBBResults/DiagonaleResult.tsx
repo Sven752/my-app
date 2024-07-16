@@ -1,17 +1,34 @@
 import React from "react";
 import { View, Image, Text, StyleSheet, Dimensions } from "react-native";
 
-function DiagonaleResult(props: Readonly<{ length: number; angle: number }>) {
+function DiagonaleResult(
+  props: Readonly<{
+    longLength: number;
+    shortLength: number;
+    alphaAngle: number;
+    bravoAngle: number;
+  }>
+) {
   return (
     <View style={styles.background}>
       <Image
         style={styles.imageStyle}
         source={require("@/assets/images/SSB_Images/Results/SSBDiagonale.png")}
       />
-      <Text style={styles.textStyle}>Länge der Diagonale:</Text>
-      <Text style={styles.textStyle}>{props.length} cm</Text>
-      <Text style={styles.textStyle}>Winkel der Anschnittkante:</Text>
-      <Text style={styles.textStyle}>{props.angle} cm</Text>
+      <Text style={styles.textStyleHeader}>Länge A der Diagonale:</Text>
+      <Text style={styles.textStyleContent}>
+        Innenkante (a) {props.longLength} cm
+      </Text>
+      <Text style={styles.textStyleContent}>
+        Außenkante (b) {props.shortLength} cm
+      </Text>
+      <Text style={styles.textStyleHeader}>Winkel der Anschnittkante:</Text>
+      <Text style={styles.textStyleContent}>
+        Alpha: {props.alphaAngle} Grad
+      </Text>
+      <Text style={styles.textStyleContent}>
+        Bravo: {props.bravoAngle} Grad
+      </Text>
     </View>
   );
 }
@@ -24,10 +41,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "white",
   },
-  textStyle: {
+  textStyleHeader: {
     flex: 1,
-    padding: 10,
-    marginTop: 20,
+    fontWeight: "bold",
+    paddingTop: 50,
+  },
+  textStyleContent: {
+    flex: 0.5,
   },
   imageStyle: {
     resizeMode: "contain",

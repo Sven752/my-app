@@ -43,7 +43,6 @@ function ViewSSBResults() {
     balkenDicke: Number.parseFloat(balkenDicke),
     keilSize: Number.parseFloat(keilSize),
   };
-  console.log(width);
 
   //calculate SSB values
   const SSBCalculator = new CalculateSSB(inputSSBData);
@@ -71,8 +70,10 @@ function ViewSSBResults() {
 
         <View style={styles.page}>
           <DiagonaleResult
-            length={SSBResults.diagonaleLength}
-            angle={SSBResults.diagonaleAngle}
+            longLength={SSBResults.diagonaleLongLength}
+            shortLength={SSBResults.diagonaleShortLength}
+            alphaAngle={SSBResults.diagonaleAlphaAngle}
+            bravoAngle={SSBResults.diagonaleBravoAngle}
           />
         </View>
 

@@ -8,8 +8,8 @@ function SWSprzResult(props: Readonly<{ length: number }>) {
         style={styles.imageStyle}
         source={require("@/assets/images/SW_Images/Results/SWSpreizBalken.png")}
       />
-      <Text style={styles.textStyle}>Länge des Spreizbalkens:</Text>
-      <Text style={styles.textStyle}>{props.length} cm</Text>
+      <Text style={styles.textStyleHeader}>Länge des Spreizbalkens:</Text>
+      <Text style={styles.textStyleContent}>{props.length} cm</Text>
     </View>
   );
 }
@@ -21,10 +21,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "white",
   },
-  textStyle: {
+  textStyleHeader: {
     flex: 1,
-    padding: 10,
-    marginTop: 20,
+    fontWeight: "bold",
+    paddingTop: 50,
+  },
+  textStyleContent: {
+    flex: 0.5,
   },
   imageStyle: {
     resizeMode: "contain",

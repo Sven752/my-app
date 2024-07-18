@@ -8,6 +8,7 @@ import DiagonaleResult from "./Components/SBBResults/DiagonaleResult";
 import KnaggeResult from "./Components/SBBResults/KnaggeResult";
 import VerSResult from "./Components/SBBResults/VerSResult";
 import { CalculateSSB } from "../dataHandling/CalculateSSB";
+import { SSBResultsFormat } from "../dataHandling/SSBData";
 
 type SSBType = {
   width: number;
@@ -45,8 +46,8 @@ function ViewSSBResults() {
   };
 
   //calculate SSB values
-  const SSBCalculator = new CalculateSSB(inputSSBData);
-  const SSBResults = SSBCalculator.outputData;
+  const SSBCalculator: CalculateSSB = new CalculateSSB(inputSSBData);
+  const SSBResults: SSBResultsFormat = SSBCalculator.outputData;
 
   console.log(SSBResults);
 

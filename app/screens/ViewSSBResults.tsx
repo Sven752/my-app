@@ -48,6 +48,8 @@ function ViewSSBResults() {
   const SSBCalculator = new CalculateSSB(inputSSBData);
   const SSBResults = SSBCalculator.outputData;
 
+  console.log(SSBResults);
+
   return (
     <View style={{ flex: 1 }}>
       <ScrollView

@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Image, Text, StyleSheet, Dimensions } from "react-native";
+import ImageModal from "react-native-image-modal";
 
 function DiagonaleResult(
   props: Readonly<{
@@ -11,7 +12,8 @@ function DiagonaleResult(
 ) {
   return (
     <View style={styles.background}>
-      <Image
+      <ImageModal
+        resizeMode="contain"
         style={styles.imageStyle}
         source={require("@/assets/images/SSB_Images/Results/SSBDiagonale.png")}
       />

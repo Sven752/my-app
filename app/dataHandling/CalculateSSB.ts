@@ -16,13 +16,6 @@ type SSBResultsFormat = {
   diagonaleBravoAngle: number;
 };
 
-let input: SSBType = {
-  width: 500,
-  height: 200,
-  balkenDicke: 10,
-  keilSize: 5,
-};
-
 export class CalculateSSB {
   inputData: SSBType;
   outputData: SSBResultsFormat;
@@ -35,7 +28,7 @@ export class CalculateSSB {
   diagLongLength: number = 0;
 
   constructor(param: SSBType) {
-    this.inputData = input;
+    this.inputData = param;
     this.outputData = {
       diagonaleAlphaAngle: 0,
       diagonaleBravoAngle: 0,

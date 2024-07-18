@@ -9,7 +9,6 @@ function SWContinue(props: Readonly<SWProps>) {
       <Button
         title="Berechne Maße"
         onPress={() => {
-          console.log(props.SWData.height);
           router.push(
             `screens/ViewSWResults?height=${props.SWData.height}&width=${props.SWData.width}&balkenDicke=${props.SWData.balkenDicke}&sbDicke=${props.SWData.sbDicke}&keilSize=${props.SWData.keilSize}` as any
           );

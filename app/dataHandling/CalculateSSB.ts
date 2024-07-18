@@ -10,7 +10,7 @@ export class CalculateSSB {
   diagHeigth: number = 0;
   diagWidth: number = 0;
   diagLongLength: number = 0;
-  pKatetensatz:number = 0;
+  pKatetensatz: number = 0;
 
   constructor(param: SSBType) {
     this.inputData = param;
@@ -67,7 +67,7 @@ export class CalculateSSB {
       );
     }
 
-    return this.inputData.width - 20;
+    return this.inputData.width - 20 - this.inputData.balkenDicke;
   }
 
   /**
@@ -93,6 +93,7 @@ export class CalculateSSB {
     this.diagHeigth =
       this.outputData.sbLength - 40 - this.inputData.balkenDicke;
     this.diagWidth = this.outputData.tlLength - 40 - this.inputData.keilSize;
+
     this.beta = Math.atan(this.diagHeigth / this.diagWidth);
     this.alpha = Math.PI / 2 - this.beta;
 
@@ -114,9 +115,8 @@ export class CalculateSSB {
         this.ank * this.ank
     );
 
-    
-    let q = this.geg ** 2 / this.inputData.balkenDicke;
-    let p = this.ank ** 2 / this.inputData.balkenDicke;
+    let p = this.geg ** 2 / this.inputData.balkenDicke;
+    let q = this.ank ** 2 / this.inputData.balkenDicke;
 
     this.pKatetensatz = p;
 
@@ -125,29 +125,29 @@ export class CalculateSSB {
   }
 
   calculateDiagonaleMidHeight(): number {
-    return Math.round(this.pKatetensatz*10)/10;
+    return Math.round(this.pKatetensatz * 10) / 10;
   }
 
   calculateDiagonaleAlphaAngle(): number {
-    return Math.round(this.alpha * (180 / Math.PI));
+    return Math.round(this.alpha * (180 / Math.PI) * 10) / 10;
   }
 
   calculateDiagonaleBravoAngle(): number {
-    return Math.round(this.beta * (180 / Math.PI));
+    return Math.round(this.beta * (180 / Math.PI) * 10) / 10;
   }
 
   calculateVersLength(): number {
     throwIfUndefined(this.outputData.tlLength);
 
-    return this.outputData.tlLength * 0.7;
-  }
-
-  calculateKnaggeTL(): number {
-    return this.inputData.height - 40;
+    return Math.round(this.outputData.tlLength * 7) / 10;
   }
 
   calculateKnaggeSB(): number {
-    return this.diagWidth;
+    return Math.round((this.inputData.height - 40) * 10) / 10;
+  }
+
+  calculateKnaggeTL(): number {
+    return Math.round((this.diagWidth + this.inputData.keilSize) * 10) / 10;
   }
 }
 

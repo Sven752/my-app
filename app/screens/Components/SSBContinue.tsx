@@ -22,7 +22,6 @@ function SSBContinue(props: Readonly<SSBProps>) {
           router.push(
             `screens/ViewSSBResults?height=${props.SSBData.height}&width=${props.SSBData.width}&balkenDicke=${props.SSBData.balkenDicke}&keilSize=${props.SSBData.keilSize}` as any
           );
-          console.log(props.SSBData);
         }}
       />
     </View>

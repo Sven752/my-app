@@ -6,6 +6,7 @@ function DiagonaleResult(
   props: Readonly<{
     longLength: number;
     shortLength: number;
+    longLengthHeigth: number;
     alphaAngle: number;
     bravoAngle: number;
   }>
@@ -24,6 +25,10 @@ function DiagonaleResult(
       <Text style={styles.textStyleContent}>
         Außenkante (b) {props.shortLength} cm
       </Text>
+      <Text style={styles.textStyleHeader}>
+        Höhe der der Diagonale über Winkel Alpha:
+      </Text>
+      <Text style={styles.textStyleContent}>{props.longLengthHeigth} cm</Text>
       <Text style={styles.textStyleHeader}>Winkel der Anschnittkante:</Text>
       <Text style={styles.textStyleContent}>
         Alpha: {props.alphaAngle} Grad

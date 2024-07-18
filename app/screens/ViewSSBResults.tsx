@@ -9,6 +9,8 @@ import KnaggeResult from "./Components/SBBResults/KnaggeResult";
 import VerSResult from "./Components/SBBResults/VerSResult";
 import { CalculateSSB } from "../dataHandling/CalculateSSB";
 import { SSBResultsFormat } from "../dataHandling/SSBData";
+import MountKnaggeTL from "./Components/SBBResults/MountKnaggeTL";
+import MountKnaggeSB from "./Components/SBBResults/MountKnaggeSB";
 
 type SSBType = {
   width: number;
@@ -49,8 +51,6 @@ function ViewSSBResults() {
   const SSBCalculator: CalculateSSB = new CalculateSSB(inputSSBData);
   const SSBResults: SSBResultsFormat = SSBCalculator.outputData;
 
-  console.log(SSBResults);
-
   return (
     <View style={{ flex: 1 }}>
       <ScrollView
@@ -68,13 +68,22 @@ function ViewSSBResults() {
         </View>
 
         <View style={styles.page}>
+          <MountKnaggeTL length={SSBResults.mountKnaggeTL} />
+        </View>
+
+        <View style={styles.page}>
           <SBResult length={SSBResults.sbLength} />
+        </View>
+
+        <View style={styles.page}>
+          <MountKnaggeSB length={SSBResults.mountKnaggeSB} />
         </View>
 
         <View style={styles.page}>
           <DiagonaleResult
             longLength={SSBResults.diagonaleLongLength}
             shortLength={SSBResults.diagonaleShortLength}
+            longLengthHeigth={SSBResults.diagonaleMidHeight}
             alphaAngle={SSBResults.diagonaleAlphaAngle}
             bravoAngle={SSBResults.diagonaleBravoAngle}
           />
@@ -95,7 +104,7 @@ function ViewSSBResults() {
         <PaginationDot
           activeDotColor={"black"}
           curPage={page}
-          maxPage={5}
+          maxPage={7}
           sizeRatio={2}
         />
       </View>
